@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Drawing Tools Soal 2</title>
+</head>
+<body>
+        <h1>Drawing Tools</h1>
+        <p>1. Persegi</p>
+        <p>2. Segitiga Sama Siku2 Rata Kiri</p>
+        <p>3. Segitiga Sama Siku2 Rata Kanan</p>
+        <p>Jenis Bangunan</p>
+        <input type="number" placeholder="Jenis Bangunan">
+        <p>Ukuran</p>
+        <input type="number" placeholder="Ukuran">
+        <input type="button" value="Submit" onclick='PrintBangunan()'>
+        <div>
+
+        </div>
+
+    <script>
+        function PrintBangunan() {
+            let jenis = document.getElementsByTagName('input')[0].value;
+            let ukuran = document.getElementsByTagName('input')[1].value;
+            let output = '';
+            let spasi = ukuran;
+
+            if(jenis == 1) {
+                for(let x = 0; x < ukuran; x++) {
+                    output += '<p>'
+                        for(let y = 0; y < ukuran; y++) {
+                            output += '* '
+                        }
+                    output += '<p>'
+                }
+            } else if(jenis == 2) {
+                for(let x = 0; x < ukuran; x++) {
+                    output += '<p>'
+                    for(let y = 0; y <= x; y++) {
+                        output += '* '
+                    }
+                    output += '</p>'
+                }
+
+            } else if(jenis == 3) {
+                for (let x = 0; x < ukuran; x++) {
+                    output += '<p>';
+                    for(let i = 0; i < spasi; i++) {
+                        output += `<span style='color:white'>* </span>`;
+                }
+                    spasi--;
+                    for (let y = 0; y <= x; y++) {
+                        output += '* '
+                    }
+                    output += '</p>'
+                }
+            }
+
+            document.getElementsByTagName('div')[0].innerHTML = output;
+            document.getElementsByTagName('input')[0].value = '';
+            document.getElementsByTagName('input')[1].value = '';
+        }
+    </script>
+</body>
+</html>
